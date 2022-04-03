@@ -6,7 +6,8 @@ on:
       - main
     paths:
       - packages/container/**
-
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 defaults:
   run:
     working-directory: packages/container
@@ -16,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v1
       - run: npm install
       - run: npm run build
 
