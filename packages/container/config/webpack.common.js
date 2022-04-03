@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     module: {
         rules: [
@@ -9,8 +11,8 @@ module.exports = {
                     options: {
                         presets: ["@babel/preset-typescript", '@babel/preset-react', '@babel/preset-env'],
                         plugins: ['@babel/transform-runtime']
-                    }
-                }
+                    },
+                },
             },
             {
                 test: /\.(ts|tsx|js|jsx)$/,
@@ -28,4 +30,9 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js"]
     },
-}
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+        }),
+    ],
+};
