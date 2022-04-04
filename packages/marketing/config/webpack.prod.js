@@ -7,7 +7,7 @@ const prodConfig = {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
-        publicPath: '/markerting/latest/'
+        publicPath: '/marketing/latest/'
     },
 
     plugins: [
