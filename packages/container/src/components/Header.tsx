@@ -55,15 +55,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface HeaderProps {
-  signedIn: boolean;
+  isSignedIn: boolean;
   onSignOut: any;
 }
 
-const Header: React.FC<HeaderProps> = ({ signedIn, onSignOut }) => {
+const Header: React.FC<HeaderProps> = ({ isSignedIn, onSignOut }) => {
   const classes = useStyles();
 
   const onClick = () => {
-    if (signedIn && onSignOut) {
+    if (isSignedIn && onSignOut) {
       onSignOut();
     }
   };
@@ -91,10 +91,10 @@ const Header: React.FC<HeaderProps> = ({ signedIn, onSignOut }) => {
             variant="outlined"
             className={classes.link}
             component={RouterLink}
-            to={signedIn ? "/" : "/auth/signin"}
+            to={isSignedIn ? "/" : "/auth/signin"}
             onClick={onClick}
           >
-            {signedIn ? "Logout" : "Login"}
+            {isSignedIn ? "Logout" : "Login"}
           </Button>
         </Toolbar>
       </AppBar>
